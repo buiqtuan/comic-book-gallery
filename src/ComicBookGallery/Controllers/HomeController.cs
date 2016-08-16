@@ -9,34 +9,18 @@ namespace ComicBookGallery.Controllers
     public class HomeController : Controller
     {
         public ActionResult Detail() {
-            if (DateTime.Today.DayOfWeek == DayOfWeek.Tuesday) {
-                return Redirect("/");
-            }
+            ViewBag.title = "My first ASP app";
+            ViewBag.description = "I'm learning .NET ASP";
+            ViewBag.testString = "<p>heheheeee - <strong>test</strong><p>";
+            ViewBag.characters = new string[]
+            {
+                "Mario",
+                "Princess Peach",
+                "Bowser",
+                "Toad",
+                "Yoshi"
+            };
 
-            return Content("HELLOOOO");
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
             return View();
         }
     }

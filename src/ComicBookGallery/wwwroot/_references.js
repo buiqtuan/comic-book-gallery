@@ -1,4 +1,7 @@
 ﻿/// <autosync enabled="true" />
+/// <reference path="../scripts/bootstrap.min.js" />
+/// <reference path="../scripts/jquery-1.10.2.js" />
+/// <reference path="../scripts/modernizr-2.6.2.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />
