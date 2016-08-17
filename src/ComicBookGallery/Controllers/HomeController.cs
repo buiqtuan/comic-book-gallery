@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ComicBookGallery.Models;
+using ComicBookGallery.Data;
 
 namespace ComicBookGallery.Controllers
 {
-    public class HomeController : Controller
+    public class ComicBooksController : Controller
     {
-        public ActionResult Detail() {
-            ViewBag.title = "My first ASP app";
-            ViewBag.description = "I'm learning .NET ASP";
-            ViewBag.testString = "<p>heheheeee - <strong>test</strong><p>";
-            ViewBag.characters = new string[]
-            {
-                "Mario",
-                "Princess Peach",
-                "Bowser",
-                "Toad",
-                "Yoshi"
-            };
+        private ComicBookRepository _comicBookRepository = null;
 
-            return View();
+        public ComicBooksController() {
+            _comicBookRepository = new ComicBookRepository();
+        }
+
+        public ActionResult Detail(int? id) {
+            if (id == null) {
+                return NotFound();
+            }
+
+            var cbr = _comicBookRepository.GetComicBook((int)id);
+
+            return View(cbr);
         }
     }
 }
